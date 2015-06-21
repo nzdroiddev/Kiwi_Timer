@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    tools:context=".MainActivity"
+    android:orientation="horizontal">
+
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewFlipper">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/stopwatch_title"
+                android:id="@+id/textView"
+                android:paddingBottom="16dp"
+                android:background="@color/background_material_dark"
+                android:textColor="@color/primary_text_default_material_dark"
+                android:paddingTop="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/settings_title"
+                android:id="@+id/textView2"
+                android:background="@color/background_material_dark"
+                android:paddingBottom="16dp"
+                android:textColor="@color/primary_text_default_material_dark"
+                android:paddingTop="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/timer_title"
+                android:id="@+id/textView3"
+                android:paddingBottom="16dp"
+                android:background="@color/background_material_dark"
+                android:textColor="@color/primary_text_default_material_dark"
+                android:paddingTop="10dp" />
+        </RelativeLayout>
+    </ViewFlipper>
+</LinearLayout>
