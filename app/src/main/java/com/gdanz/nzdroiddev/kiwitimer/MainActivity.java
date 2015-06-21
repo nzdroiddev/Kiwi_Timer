@@ -1,6 +1,7 @@
 package com.gdanz.nzdroiddev.kiwitimer;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ViewFlipper;
 import android.view.MotionEvent;
@@ -15,6 +16,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+        Typeface fontNixie = Typeface.createFromAsset(this.getAssets(), "fonts/NixieOne-Regular.ttf");
     }
 /*
     @Override

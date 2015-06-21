@@ -6,4 +6,5 @@
     <string name="stopwatch_title">Stopwatch</string>
     <string name="timer_title">Timer</string>
     <string name="settings_title">Settings</string>
+    <string name="stopwatch_initial">00:00</string>
 </resources>
