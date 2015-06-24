@@ -3,6 +3,9 @@ package com.gdanz.nzdroiddev.kiwitimer;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.view.MotionEvent;
 
@@ -10,13 +13,69 @@ import android.view.MotionEvent;
 public class MainActivity extends Activity {
     private ViewFlipper viewFlipper;
     private float lastX;
+    private Button buttonStart, buttonStop, buttonSplit;
+    private TextView textViewStopwatchDisplay, textViewSplits;
+    private int splitCount;
+    private boolean canReset, canPause;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+
+        splitCount = 0;
+        canReset = canPause = false;
+
         Typeface fontNixie = Typeface.createFromAsset(this.getAssets(), "fonts/NixieOne-Regular.ttf");
+
+        textViewStopwatchDisplay = (TextView) findViewById(R.id.textViewStopwatchDisplay);
+        textViewStopwatchDisplay.setTypeface(fontNixie);
+
+        textViewSplits  = (TextView) findViewById(R.id.textViewSplits);
+
+        buttonStart = (Button) findViewById(R.id.buttonStart);
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (canPause) {
+                    buttonStart.setText("START");
+                    canPause = false;
+                }
+                else {
+                    buttonStop.setText("STOP");
+                    buttonStart.setText("PAUSE");
+                    canPause = true;
+                }
+            }
+        });
+
+        buttonStop = (Button) findViewById(R.id.buttonStop);
+        buttonStop.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (canReset) {
+                    textViewStopwatchDisplay.setText("00:00");
+                    textViewSplits.setText("");
+                    buttonStart.setText("START");
+                    buttonStop.setText("STOP");
+                    canReset = false;
+                }
+                else {
+                    buttonStop.setText("RESET");
+                    canReset = true;
+                }
+            }
+        });
+
+        buttonSplit = (Button) findViewById(R.id.buttonSplit);
+        buttonSplit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                textViewSplits.append("Split " + String.valueOf(splitCount) + ": " + textViewStopwatchDisplay.getText() + "\n");
+                splitCount++;
+            }
+        });
+
+
     }
 /*
     @Override
@@ -86,4 +145,6 @@ public class MainActivity extends Activity {
         }
         return false;
     }
+
+
 }

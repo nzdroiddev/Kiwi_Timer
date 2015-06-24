@@ -23,12 +23,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/stopwatch_title"
-                android:id="@+id/textView"
+                android:id="@+id/textViewStopwatchTitle"
                 android:paddingBottom="16dp"
                 android:background="@color/background_floating_material_dark"
                 android:textColor="@color/primary_text_default_material_dark"
                 android:paddingTop="10dp"
-                android:elevation="10dp" />
+                android:elevation="5dp" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -36,14 +36,80 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/stopwatch_initial"
                 android:id="@+id/textViewStopwatchDisplay"
-                android:layout_below="@+id/textView"
+                android:layout_below="@+id/textViewStopwatchTitle"
                 android:layout_centerHorizontal="true"
                 android:background="@color/background_floating_material_dark"
                 android:gravity="center_vertical|center|center_horizontal"
                 android:textColor="@color/primary_text_default_material_dark"
                 android:textSize="80sp"
                 android:elegantTextHeight="false"
-                android:paddingTop="10dp" />
+                android:paddingTop="10dp"
+                android:elevation="4dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/textViewStopwatchDisplay"
+                android:id="@+id/linearLayout">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_button_title"
+                    android:id="@+id/buttonStart"
+                    android:layout_weight=".5"
+                    android:theme="@style/AppTheme"
+                    android:background="@color/background_floating_material_dark"
+                    android:elevation="3dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stop_button_title"
+                    android:id="@+id/buttonStop"
+                    android:layout_weight=".5"
+                    android:theme="@style/AppTheme"
+                    android:background="@color/background_floating_material_dark"
+                    android:elevation="3dp" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/split_button_title"
+                android:id="@+id/buttonSplit"
+                android:layout_below="@+id/linearLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:theme="@style/AppTheme"
+                android:background="@color/background_floating_material_dark"
+                android:elevation="1dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/split_title"
+                android:id="@+id/textViewSplitTitle"
+                android:layout_below="@+id/buttonSplit"
+                android:background="@color/background_floating_material_dark" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/scrollView"
+                android:layout_below="@+id/textViewSplitTitle"
+                android:layout_alignParentStart="true"
+                android:background="@color/background_floating_material_dark">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewSplits"
+                    android:paddingTop="5dp" />
+            </ScrollView>
+
         </RelativeLayout>
 
         <RelativeLayout
